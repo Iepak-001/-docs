@@ -98,7 +98,7 @@
                 </div>
                 
                 <div class="col_container">
-                    <div class="cols">
+                    <div id="news_cols">
                         <div class="col">
                             <img src="./images/beach.jpeg" alt="">
                             <div class="pic_name">
@@ -162,32 +162,33 @@
                         <div class="heading">
                             Update News
                         </div>
-                        <div class="form_contents">
+                        <form id="form_contents">
+                            <label for="Heading">Heading</label>
+                            <input type="text" id="form_Heading">
                             <div class="row">
-                                <label for="Heading">Heading</label>
-                            <input type="text" id="Heading">
+                                
                             </div>
                             
 
                             <div class="row">
                                 <label for="short_read">Short Read</label>
-                            <input type="text" id="short_read">
+                            <input type="text" id="form_short_read">
                             </div>
                             
 
                             <div class="row">
                                 <label for="">Insert Display  Image</label>
-                                <input type="file" name="" id="image">
+                                <input type="file" name="" id="form_image">
                             </div>
                            
 
                             <div class="row">
-                                <label for="learn_more">Learn More Url</label>
-                            <input type="url" name="" id="learn_more">
+                                <label for="learn_more" id=""">Learn More Url</label>
+                            <input type="url" name="" id="form_learn_more">
                             </div>
 
                             <div class="row_submit" >
-                                <input type="submit" id="submit">
+                                <button type="submit" id="submit">Add Element</button>
                             </div>
                             
                         </div>
@@ -253,5 +254,48 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const userForm=document.getElementById('form_contents');
+        const newsDisplay= document.getElementById('news_cols');
+        
+        userForm.addEventListener('submit',(event)=>{
+            event.preventDefault();
+
+            const Heading=document.getElementById('form_Heading').value;
+            const Short_reading=document.getElementById('form_short_read').value;
+            const LearningMore=document.getElementById('form_learn_more').value;
+            const FormImage=document.getElementById('form_image').va
+            console.log(Short_reading.value);
+
+            const colDiv=document.createElement('div');
+            colDiv.classList.add('col');
+
+            
+
+            const pic_nameDiv=document.createElement('class');
+            pic_nameDiv.classList.add('pic_name');
+            pic_nameDiv.textContent=Heading;
+
+            const pic_aboutDiv=document.createElement('class');
+            pic_aboutDiv.classList.add('pic_about');
+            pic_aboutDiv.textContent=Short_reading;
+
+            
+
+            const form_image_tab=document.getElementById('form_image').files[0];
+            const pic=document.createElement('img');
+            pic.src=URL.createObjectURL(form_image_tab);
+            
+            colDiv.appendChild(pic);
+            colDiv.appendChild(pic_nameDiv);
+            colDiv.appendChild(pic_aboutDiv);
+            newsDisplay.appendChild(colDiv);
+
+
+
+        })
+        
+    </script>
 </body>
 </html>

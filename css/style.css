@@ -386,7 +386,7 @@
         flex-wrap: nowrap;
         min-width: 100%;
         max-width: 100%;
-        .cols{
+        #news_cols{
             display: flex;
             white-space: nowrap; 
             /* flex-wrap: nowrap; */
@@ -394,6 +394,8 @@
             img{
                 border-radius: 5px;
                 width: 350px;
+                height: 350px;
+                object-fit: contain;
             }
             .col{
                 /* white-space: nowrap; */
@@ -403,7 +405,7 @@
                 display: flex;
                 flex-direction: column;
                 margin: 2rem;
-                text-overflow: ellipsis;
+                align-items: center;
                 .pic_name{
                     width: 350px;
                     font-size: 2rem;
@@ -424,7 +426,7 @@
         .heading{
             font-size: 30px;
         }
-        .form_contents{
+        #form_contents{
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
